@@ -37,21 +37,21 @@ app.post ('/', (req, res) => {
         });
     });
 
-app.get ('/', (req, res) => {
+// app.get ('/', (req, res) => {
     
-    /*Trae la info de la base de datos*/
-    MongoClient.connect (url, { 
-        useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
-            if (err) throw err;
-            dbo = db.db ("uade-clase-36");
-    db.collection ('api_autos_emilio').findOne({}, function(err, result) {
-        if (err) throw err;
-        console.log(result.name);
-        db.close();
-      });
+//     /*Trae la info de la base de datos*/
+//     MongoClient.connect (url, { 
+//         useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
+//             if (err) throw err;
+//             dbo = db.db ("uade-clase-36");
+//     db.collection ('api_autos_emilio').findOne({}, function(err, result) {
+//         if (err) throw err;
+//         console.log(result.name);
+//         db.close();
+//       });
     
- }); 
-});
+//  }); 
+// });
 
 
 
