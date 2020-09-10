@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/estilos.css">
     <title>API</title>
 </head>
 <body>
@@ -11,28 +12,28 @@
         <form action="" id="formulario">
             <div class="row">
                 <div class="col-6 offset-3">
-                    <h3>Ingreso nuevo vehiculo</h3>
+                    <h3 class="tituloFormulario">Ingreso nuevo vehiculo</h3>
                 </div>
-                <div class="col-6 offset-3 ">
+                <div class="col-6 offset-3 inputMarca">
                     <label for="marcaVehiculo">Marca</label>
                     <input type="text" name="marcaVehiculo" id="marcaVehiculo">
                 </div>
-                <div class="col-6 offset-3 ">
+                <div class="col-6 offset-3 inputModelo">
                     <label for="modeloVehiculo">Modelo</label>
                     <input type="text" name="modeloVehiculo" id="modeloVehiculo">
                 </div>
-                <div class="col-6 offset-3 ">
+                <div class="col-6 offset-3 inputColor">
                     <label for="colorVehiculo">Color</label>
                     <input type="text" name="colorVehiculo" id="colorVehiculo">
                 </div>
-                <div class="col-6 offset-3 ">
+                <div class="col-6 offset-3 btnEnviar">
                     <button type="submit" class="btn btn-info" id="btnEnviar">Enviar</button>
                 </div>
             </div>
         </form>
         <div class="row">
-            <div class="col-6 offset-3 ">
-                <button type="submit" class="btn btn-info" id="btnEnviar">Actualizar</button>
+            <div class="col-6 offset-3 btnActualizar ">
+                <button type="submit" class="btn btn-info" id="btnActualizar">Actualizar</button>
             </div>
         </div>
     </div>

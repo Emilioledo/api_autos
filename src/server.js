@@ -22,7 +22,6 @@ app.post ('/', (req, res) => {
     let modelo = req.body.modeloVehiculo;
     let color = req.body.colorVehiculo;
 
-    
 
     /*Creando documento en collection*/
     MongoClient.connect (url, { 
@@ -39,16 +38,18 @@ app.post ('/', (req, res) => {
     });
 
 app.get ('/', (req, res) => {
-    let  resultadoArray = [];
+    
+    /*Trae la info de la base de datos*/
     MongoClient.connect (url, { 
         useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
             if (err) throw err;
             dbo = db.db ("uade-clase-36");
-    db.collection ('api_autos_emilio').find();
-    cursor.forEach (function (doc, erro){
-        resultadoArray.push (doc);
-        console.log (resultadoArray);
-    }); 
+    db.collection ('api_autos_emilio').findOne({}, function(err, result) {
+        if (err) throw err;
+        console.log(result.name);
+        db.close();
+      });
+    
  }); 
 });
 

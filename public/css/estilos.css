@@ -1,0 +1,31 @@
+.tituloFormulario {
+    font-family: Jost;
+    text-align: center;
+}
+
+.formulario {
+    border-color: black;
+    border-radius: 1px;
+    border-style: solid;
+}
+
+.inputMarca {
+    margin-left: 490px;
+}
+
+.inputModelo {
+    margin-left: 480px;
+}
+
+.inputColor {
+    margin-left: 497px;
+}
+
+.btnEnviar {
+    margin-left: 585px;
+}
+
+.btnActualizar {
+    margin-left: 572px;
+    margin-top: 5px;
+}
