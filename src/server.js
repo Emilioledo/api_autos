@@ -40,12 +40,16 @@ app.post ('/', (req, res) => {
 
 app.get ('/', (req, res) => {
     let  resultadoArray = [];
+    MongoClient.connect (url, { 
+        useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
+            if (err) throw err;
+            dbo = db.db ("uade-clase-36");
     db.collection ('api_autos_emilio').find();
     cursor.forEach (function (doc, erro){
         resultadoArray.push (doc);
         console.log (resultadoArray);
     }); 
-        
+ }); 
 });
 
 
