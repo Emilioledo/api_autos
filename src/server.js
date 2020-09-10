@@ -39,8 +39,15 @@ app.post ('/', (req, res) => {
     });
 
 app.get ('/', (req, res) => {
-
+    let  resultadoArray = [];
+    db.collection ('api_autos_emilio').find();
+    cursor.forEach (function (doc, erro){
+        resultadoArray.push (doc);
+        console.log (resultadoArray);
+    }); 
+        
 });
+
 
 
 app.listen (port, () => {
