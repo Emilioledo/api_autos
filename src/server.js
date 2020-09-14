@@ -1,59 +1,46 @@
 const express = require('express');
 const nodemon = require ('nodemon');
 const app = express();
-const moongose = require ('mongoose');
+const mongoose = require ('mongoose');
 const mongodb = require ('mongodb');
 const path = require ('path');
 const bodyParser = require('body-parser');
 const publicDirectory = path.join(__dirname, '../public/');
+const Vehiculo = require ('../modelos/vehiculo');
+
 
 /*Conectando a la base de datos*/
-const MongoClient = require ('mongodb').MongoClient;
-const url = "mongodb+srv://uade-clase-36:9nyyH9W87Aezw5qD@cluster0.pv3xb.mongodb.net/"
+// const user = 'api_vehiculo';
+// const password = 'a7ylI6b9eG5s5Iv8';
+const url = "mongodb+srv://api_vehiculo:a7ylI6b9eG5s5Iv8@cluster0.9lddv.mongodb.net/Test?retryWrites=true&w=majority";
+
+mongoose.connect(url, 
+{useNewUrlParser: true, useUnifiedTopology: true}).then (()=> {
+    console.log ("Base de datos conectada");
+}).catch ( (error) => {
+    console.log (error);
+});
+
+/*Motor de plantillas*/
+app.set ('view engine', 'ejs');
+app.set ('view', __dirname + '/views');
 
 /*PORT*/
 const port = process.env.PORT || 3000;
 app.use(express.static(publicDirectory));
 app.use(express.json());
 
-app.post ('/', (req, res) => {
-    console.log ("Entro la request");
-    let marca = req.body.marcaVehiculo;
-    let modelo = req.body.modeloVehiculo;
-    let color = req.body.colorVehiculo;
 
-
-    /*Creando documento en collection*/
-    MongoClient.connect (url, { 
-        useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
-            if (err) throw err;
-            dbo = db.db ("uade-clase-36");
-            let vehiculo = {marca_: marca, modelo_: modelo, color_: color};
-            dbo.collection("api_autos_emilio").insertOne(vehiculo, (err, res) => {
-               if (err) throw err;
-               console.log (vehiculo);
-               db.close;
-            });
-        });
-    });
-
-// app.get ('/', (req, res) => {
-    
-//     /*Trae la info de la base de datos*/
-//     MongoClient.connect (url, { 
-//         useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
-//             if (err) throw err;
-//             dbo = db.db ("uade-clase-36");
-//     db.collection ('api_autos_emilio').findOne({}, function(err, result) {
-//         if (err) throw err;
-//         console.log(result.name);
-//         db.close();
-//       });
-    
-//  }); 
-// });
-
-
+app.get ('/autos',  async (req, res) => {
+    try {
+        const arrayVehiculo = await Vehiculo.find ();
+        console.log (arrayVehiculo);
+        } catch (error) {
+            console.log (error);
+        }
+    res.render ("index",) /*1° el archivo de la carpeta views*/
+});
+ 
 
 app.listen (port, () => {
     console.log ("Conectado al SV desde el port" + port);
