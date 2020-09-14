@@ -52,7 +52,23 @@ app.get ('/autos',  async (req, res) => {
         }
 });
 
- 
+ app.post ('/altas', async (req, res) =>{
+      let marca_ = req.body.marcaVehiculo;
+      let modelo_ = req.body.modeloVehiculo;
+      let color_ = req.body.colorVehiculo;
+      let vehiculo_ = {
+            marca: marca_,
+            modelo: modelo_,
+            color: color_
+      };
+      console.log (vehiculo_);
+      try {
+        await Vehiculo.create (vehiculo_);
+      } catch (error){
+        console.log (error);
+      }
+ });
+
 
 app.listen (port, () => {
     console.log ("Conectado al SV desde el port" + port);
