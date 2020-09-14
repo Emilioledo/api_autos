@@ -1,0 +1,25 @@
+
+<div class= "container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Color</th>
+            <th scope="col">accion</th>
+          </tr>
+        </thead>
+        <tbody>
+                <% arrayVehiculo.forEach( autos => { %>
+                    <tr>
+                        <th scope="row"><%= autos.id %></th>
+                        <td> <%= autos.marca %> </td>
+                        <td> <%= autos.modelo %> </td>
+                        <td> <%= autos.color %> </td>
+                        <td>@mdo</td>
+                      </tr>
+                <% }) %>
+        </tbody>
+      </table>
+</div>

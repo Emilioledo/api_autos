@@ -33,10 +33,14 @@ app.get ('/', (req, res) =>{
 
 
 
+
 app.get ('/autos',  async (req, res) => {
     try {
         const arrayVehiculo = await Vehiculo.find ();
         console.log (arrayVehiculo);
+        res.render ("user/autos", {
+            arrayVehiculo : arrayVehiculo
+        });
         } catch (error) {
             console.log (error);
         }
