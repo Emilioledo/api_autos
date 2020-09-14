@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require ('mongoose');
 const mongodb = require ('mongodb');
 const bodyParser = require('body-parser');
-const Vehiculo = require ('../modelos/vehiculo');
+const Vehiculo = require ('./modelos/vehiculo');
 
 
 /*Conectando a la base de datos*/
@@ -21,7 +21,7 @@ mongoose.connect(url,
 
 /*Motor de plantillas*/
 app.set ('view engine', 'ejs');
-app.set ('views', __dirname , '../views');
+app.set ('views', __dirname + '/views');
 
 /*PORT*/
 const port = process.env.PORT || 3000;

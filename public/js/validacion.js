@@ -18,7 +18,20 @@ $('#formulario').on( "submit", function(event) {
           }
     });
     
+});
 
-
-
+$('#formulario').click(function(event) {
+    event.preventDefault();
+    $.ajax ({
+        url: "http://localhost:3000/altas",
+        dataType: 'json',
+        type: "GET",
+        contentType: 'application/json',
+        data: JSON.stringify({
+            
+        }),
+        success: (data) => {
+            console.log(data);
+          }
+    });
 });
