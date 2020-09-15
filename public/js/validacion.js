@@ -21,3 +21,9 @@ $('#formulario').on( "submit", function(event) {
     
 });
 
+
+$('botonListado').on("click", ()=>{
+    window.location.href="http://smashingmagazine.com";
+});
+
+
